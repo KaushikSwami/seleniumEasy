@@ -6,8 +6,7 @@ import org.testng.annotations.Test;
 import com.leafBot.pages.SeleniumHomePage;
 import com.leafBot.testng.api.base.Annotations;
 
-public class TC001_SelectDropDown extends Annotations{
-	
+public class TC002_InputForm extends Annotations {
 	
 	@BeforeTest
 	public void setData() {
@@ -15,12 +14,14 @@ public class TC001_SelectDropDown extends Annotations{
 		testcaseDec = "dropdown";
 		author = "Venkatesh";
 		category = "smoke";
+		excelFileName="TC001";
 	}
 	
-	@Test(priority=0)
-	public void dropDown()
+	@Test(priority=1,dataProvider="fetchData")
+	
+	public void Input_form(String fName,String lName)
 	{
-		new SeleniumHomePage().selectDropDown().select_dropDown();;
+		new SeleniumHomePage().select_input_form().enterFirstName(fName).enterLastName(lName);
 	}
 
 }

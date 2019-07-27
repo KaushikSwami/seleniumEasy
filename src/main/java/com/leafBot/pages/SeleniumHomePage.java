@@ -17,6 +17,10 @@ public class SeleniumHomePage extends Annotations {
 	@FindBy(how=How.CLASS_NAME, using="dropdown-toggle") WebElement input_DropDown;
 
 	@FindBy(how=How.LINK_TEXT, using="Select Dropdown List") WebElement drop_down_select;
+	
+	@FindBy(how=How.LINK_TEXT, using="Input Form Submit") WebElement input_form_submit;
+
+
 
 	public DropDownSelectPage selectDropDown()
 	{
@@ -24,5 +28,12 @@ public class SeleniumHomePage extends Annotations {
 		click(drop_down_select);
 		return new DropDownSelectPage();
 
+	}
+	
+	public InputFormPage select_input_form()
+	{
+		click(input_DropDown);
+		click(input_form_submit);
+		return new InputFormPage();
 	}
 }
